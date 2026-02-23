@@ -13,6 +13,7 @@
     </nav>
     <div class="footer-right">
       <small>© <?= date('Y') ?> Community Issue Reporter</small>
+      <small>By Jirawat Thongjankaew 67020180032</small>
     </div>
   </div>
 </footer>
