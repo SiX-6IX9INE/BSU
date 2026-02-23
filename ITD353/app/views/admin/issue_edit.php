@@ -20,6 +20,7 @@
       <!-- Update status form -->
       <div class="card">
         <h2 class="card-section-title">อัปเดตสถานะ</h2>
+        <div class="card-body">
         <form method="POST" action="<?= url('admin/issues/'.$issue['id'].'/update') ?>">
           <?= csrfField() ?>
           <div class="form-group">
@@ -57,11 +58,13 @@
             </form>
           </div>
         </form>
+        </div>
       </div>
 
       <!-- Issue info -->
       <div class="card">
         <h2 class="card-section-title">ข้อมูลปัญหา</h2>
+        <div class="card-body">
         <dl class="info-list">
           <dt>หัวข้อ</dt><dd><?= e($issue['title']) ?></dd>
           <dt>หมวดหมู่</dt><dd><?= e($issue['category_icon'].' '.$issue['category_name']) ?></dd>
@@ -82,12 +85,14 @@
           <?php endforeach; ?>
         </div>
         <?php endif; ?>
-      </div>
-    </div>
+        </div><!-- /.card-body -->
+      </div><!-- /.card issue-info -->
+    </div><!-- /.profile-grid -->
 
     <!-- Status timeline -->
-    <div class="card" style="margin-top:1rem">
+    <div class="card mt-1">
       <h2 class="card-section-title">⏱️ ประวัติสถานะ</h2>
+      <div class="card-body">
       <ol class="status-timeline">
         <?php foreach ($statusLogs as $log): ?>
         <li class="timeline-item">
@@ -100,11 +105,13 @@
         </li>
         <?php endforeach; ?>
       </ol>
+      </div>
     </div>
 
     <!-- Comments (admin view) -->
-    <div class="card" style="margin-top:1rem">
+    <div class="card mt-1">
       <h2 class="card-section-title">💬 ความคิดเห็น (<?= count($comments) ?>)</h2>
+      <div class="card-body">
       <?php foreach ($comments as $c): ?>
       <div class="comment-item <?= $c['is_pinned']?'pinned':'' ?>">
         <div class="comment-header">
@@ -126,6 +133,7 @@
         </div>
       </div>
       <?php endforeach; ?>
+      </div>
     </div>
   </div>
 </div>

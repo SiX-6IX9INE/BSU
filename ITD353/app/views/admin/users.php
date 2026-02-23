@@ -12,7 +12,7 @@
   <div class="admin-main">
     <div class="admin-page-header"><h1>👥 จัดการผู้ใช้ (<?= $pag['total'] ?>)</h1></div>
 
-    <form method="GET" action="<?= url('admin/users') ?>" class="card" style="padding:1rem;margin-bottom:1rem">
+    <form method="GET" action="<?= url('admin/users') ?>" class="admin-filter card">
       <div class="filter-row">
         <input type="text" name="q" value="<?= e($search) ?>" placeholder="ค้นหาชื่อ / อีเมล..." style="flex:1">
         <button type="submit" class="btn btn-primary btn-sm">🔍 ค้นหา</button>
@@ -77,12 +77,14 @@
 
       <!-- Pagination -->
       <?php if ($pag['total_pages'] > 1): ?>
-      <nav class="pagination" style="margin-top:1rem">
+      <div class="card-table-footer">
+      <nav class="pagination">
         <?php for ($p=1; $p<=$pag['total_pages']; $p++): ?>
         <a href="<?= e(url('admin/users').'?q='.urlencode($search).'&page='.$p) ?>"
            class="page-btn <?= $p===$pag['current_page']?'active':'' ?>"><?= $p ?></a>
         <?php endfor; ?>
       </nav>
+      </div>
       <?php endif; ?>
     </div>
   </div>

@@ -1,6 +1,7 @@
 <!-- Hero section -->
 <section class="hero container">
   <div class="hero-text">
+    <h1>By Jirawat Thongjankaew 67020180032</h1>
     <h1>รายงานปัญหาในชุมชน</h1>
     <p>แจ้ง ติดตาม และช่วยกันแก้ไขปัญหาในพื้นที่ของคุณ</p>
   </div>

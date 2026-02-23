@@ -13,8 +13,9 @@
     <div class="admin-page-header"><h1>🏷️ จัดการหมวดหมู่</h1></div>
 
     <!-- Add form -->
-    <div class="card" style="margin-bottom:1rem">
+    <div class="card mb-1">
       <h2 class="card-section-title">➕ เพิ่มหมวดหมู่ใหม่</h2>
+      <div class="card-body">
       <form method="POST" action="<?= url('admin/categories/create') ?>" class="form-inline">
         <?= csrfField() ?>
         <div class="form-row" style="flex-wrap:wrap;gap:.5rem;align-items:flex-end">
@@ -41,6 +42,7 @@
           <button type="submit" class="btn btn-primary">เพิ่ม</button>
         </div>
       </form>
+      </div>
     </div>
 
     <!-- List -->

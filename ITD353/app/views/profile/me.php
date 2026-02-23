@@ -7,6 +7,7 @@
     <!-- Profile info card -->
     <div class="card">
       <h2 class="card-section-title">ข้อมูลส่วนตัว</h2>
+      <div class="card-body">
       <form method="POST" action="<?= url('me/update') ?>">
         <?= csrfField() ?>
         <div class="form-group">
@@ -31,11 +32,13 @@
         </div>
         <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
       </form>
+      </div>
     </div>
 
     <!-- Change password card -->
     <div class="card">
       <h2 class="card-section-title">เปลี่ยนรหัสผ่าน</h2>
+      <div class="card-body">
       <form method="POST" action="<?= url('me/password') ?>">
         <?= csrfField() ?>
         <div class="form-group">
@@ -58,16 +61,19 @@
         </div>
         <button type="submit" class="btn btn-outline">เปลี่ยนรหัสผ่าน</button>
       </form>
+      </div>
     </div>
   </div>
 
   <!-- My issues -->
-  <div class="card" style="margin-top:1.5rem">
+  <div class="card mt-2">
     <h2 class="card-section-title">ปัญหาที่ฉันรายงาน (<?= count($myIssues) ?>)</h2>
     <?php if (empty($myIssues)): ?>
+    <div class="card-body">
     <div class="empty-state-sm">
-      <span>📭</span>
+      <span>💭</span>
       <p>คุณยังไม่ได้รายงานปัญหาใด <a href="<?= url('issue/new') ?>">แจ้งปัญหาแรก</a></p>
+    </div>
     </div>
     <?php else: ?>
     <div class="table-wrap">

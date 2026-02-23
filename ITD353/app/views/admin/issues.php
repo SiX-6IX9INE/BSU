@@ -15,8 +15,8 @@
     </div>
 
     <!-- Filters -->
-    <form method="GET" action="<?= url('admin/issues') ?>" class="filters-form card" style="padding:1rem">
-      <div class="filter-row" style="flex-wrap:wrap;gap:.5rem">
+    <form method="GET" action="<?= url('admin/issues') ?>" class="admin-filter card">
+      <div class="filter-row">
         <input type="text" name="q" value="<?= e($filters['search']) ?>" placeholder="ค้นหา..." style="flex:1;min-width:160px">
         <select name="status">
           <option value="">สถานะทั้งหมด</option>
@@ -42,7 +42,7 @@
     </form>
 
     <!-- Table -->
-    <div class="card" style="margin-top:1rem">
+    <div class="card mt-1">
       <?php if (empty($issues)): ?>
       <div class="empty-state-sm"><span>📭</span><p>ไม่พบรายการ</p></div>
       <?php else: ?>
@@ -82,11 +82,13 @@
 
       <!-- Pagination -->
       <?php if ($pag['total_pages'] > 1): ?>
-      <nav class="pagination" style="margin-top:1rem">
+      <div class="card-table-footer">
+      <nav class="pagination" aria-label="เลขหน้า">
         <?php for ($p=1; $p<=$pag['total_pages']; $p++): ?>
         <a href="<?= e($pag['base_url'].$p) ?>" class="page-btn <?= $p===$pag['current_page']?'active':'' ?>"><?= $p ?></a>
         <?php endfor; ?>
       </nav>
+      </div>
       <?php endif; ?>
       <?php endif; ?>
     </div>

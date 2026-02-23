@@ -66,8 +66,9 @@
     </div>
 
     <!-- By category -->
-    <div class="card" style="margin-top:1rem">
-      <h2 class="section-title">ปัญหาตามหมวดหมู่</h2>
+    <div class="card mt-1">
+      <h2 class="card-section-title">ปัญหาตามหมวดหมู่</h2>
+      <div class="card-body">
       <div class="cat-bars">
         <?php
         $maxCat = max(array_column($statsByCategory, 'cnt') ?: [1]);
@@ -83,11 +84,12 @@
         </div>
         <?php endforeach; ?>
       </div>
+      </div>
     </div>
 
     <!-- Recent issues -->
-    <div class="card" style="margin-top:1rem">
-      <h2 class="section-title">ปัญหาล่าสุด</h2>
+    <div class="card mt-1">
+      <h2 class="card-section-title">ปัญหาล่าสุด</h2>
       <div class="table-wrap">
         <table class="data-table">
           <thead><tr><th>Ticket</th><th>หัวข้อ</th><th>สถานะ</th><th>ความเร่งด่วน</th><th>วันที่</th></tr></thead>
@@ -104,7 +106,9 @@
           </tbody>
         </table>
       </div>
-      <a href="<?= url('admin/issues') ?>" class="btn btn-outline btn-sm" style="margin-top:.75rem">ดูทั้งหมด →</a>
+      <div class="card-table-footer">
+        <a href="<?= url('admin/issues') ?>" class="btn btn-outline btn-sm">ดูทั้งหมด →</a>
+      </div>
     </div>
   </div>
 </div>

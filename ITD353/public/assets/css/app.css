@@ -822,7 +822,9 @@ h4 {
   align-items: center;
 }
 
-.filter-row select {
+.filter-row select,
+.filter-row input[type="text"],
+.filter-row input[type="search"] {
   padding: .38rem .7rem;
   font-size: .82rem;
   border-radius: var(--r-sm);
@@ -834,9 +836,12 @@ h4 {
   transition: border-color var(--t);
 }
 
-.filter-row select:focus {
+.filter-row select:focus,
+.filter-row input[type="text"]:focus,
+.filter-row input[type="search"]:focus {
   outline: none;
   border-color: var(--color-primary);
+  cursor: text;
 }
 
 /*  Issue grid  */
@@ -1205,25 +1210,45 @@ h4 {
 
 .issue-detail-grid {
   display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 1.25rem;
+  grid-template-columns: 1fr 280px;
+  gap: 1.5rem;
   align-items: start;
 }
 
+.issue-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.issue-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.timeline-card {
+  padding: 1.25rem 1.5rem;
+}
+
 .issue-detail-header {
-  padding: 1.5rem;
+  padding: 1.5rem 1.75rem;
 }
 
 .issue-badges {
   display: flex;
   gap: .4rem;
   flex-wrap: wrap;
-  margin-bottom: .75rem;
+  align-items: center;
+  margin-bottom: .85rem;
 }
 
 .issue-detail-header h1 {
-  font-size: 1.4rem;
-  letter-spacing: -.01em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  line-height: 1.35;
   margin-bottom: .5rem;
 }
 
@@ -1330,16 +1355,16 @@ h4 {
 }
 
 .issue-body {
-  padding: 1.5rem;
+  padding: 1.5rem 1.75rem;
 }
 
 .section-title {
-  font-size: .8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  color: var(--color-muted);
-  margin-bottom: .75rem;
+  font-size: .875rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: .85rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .location-info {
@@ -1394,24 +1419,25 @@ h4 {
 }
 
 .vote-card {
-  padding: 1.5rem;
+  padding: 1.5rem 1.25rem;
   text-align: center;
 }
 
 .vote-count-big {
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1;
+  margin-bottom: .25rem;
 }
 
 .vote-label {
   font-size: .8rem;
   color: var(--color-muted);
-  margin: .35rem 0 1rem;
+  margin: .25rem 0 1rem;
 }
 
 .status-timeline {
@@ -1483,7 +1509,7 @@ h4 {
 }
 
 .comments-section {
-  padding: 1.5rem;
+  padding: 1.5rem 1.75rem;
 }
 
 .comment-list {
@@ -1902,8 +1928,49 @@ h4 {
 .card-section-title {
   font-size: .95rem;
   font-weight: 600;
-  padding: 1.1rem 1.25rem .8rem;
+  padding: 1.1rem 1.5rem .85rem;
   border-bottom: 1px solid var(--color-border);
+  margin: 0;
+}
+
+.card-body {
+  padding: 1.25rem 1.5rem;
+}
+
+.card-body+.card-body {
+  padding-top: 0;
+}
+
+.admin-filter {
+  padding: .85rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-filter .filter-row {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 1.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.card-table-footer {
+  padding: .85rem 1.25rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+.card-table-footer .pagination {
+  justify-content: flex-start;
+  margin-top: 0;
 }
 
 .form-card {
@@ -2143,13 +2210,13 @@ h4 {
   .issue-sidebar {
     order: -1;
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 200px 1fr;
     gap: .75rem;
   }
 
   .vote-card {
     text-align: left;
-    padding: 1rem;
+    padding: 1rem 1.25rem;
   }
 
   .admin-layout {

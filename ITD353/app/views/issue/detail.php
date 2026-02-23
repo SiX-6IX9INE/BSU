@@ -195,7 +195,7 @@
       </div>
 
       <!-- Status timeline -->
-      <div class="card">
+      <div class="card timeline-card">
         <h3 class="section-title">⏱️ ความคืบหน้า</h3>
         <ol class="status-timeline">
           <?php foreach ($statusLogs as $log): ?>
