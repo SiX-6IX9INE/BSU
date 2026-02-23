@@ -29,7 +29,7 @@ class HomeController
         $issues     = $issueModel->list($filters, $perPage, $pag['offset']);
         $categories = $categoryModel->all();
 
-        view('layout/header', ['pageTitle' => 'หน้าแรก – ' . APP_NAME]);
+        view('layout/header', ['pageTitle' => 'หน้าแรก – ' . APP_NAME, 'hideNavSearch' => true]);
         view('home/index', compact('issues', 'categories', 'filters', 'pag'));
         view('layout/footer');
     }

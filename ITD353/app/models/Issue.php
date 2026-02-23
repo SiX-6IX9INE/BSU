@@ -251,8 +251,10 @@ class Issue
             $params[':cat'] = (int)$f['category_id'];
         }
         if (!empty($f['search'])) {
-            $clauses[] = "(i.title LIKE :q OR i.description LIKE :q OR i.ticket_id LIKE :q)";
-            $params[':q'] = '%' . $f['search'] . '%';
+            $clauses[] = "(i.title LIKE :q1 OR i.description LIKE :q2 OR i.ticket_id LIKE :q3)";
+            $params[':q1'] = '%' . $f['search'] . '%';
+            $params[':q2'] = '%' . $f['search'] . '%';
+            $params[':q3'] = '%' . $f['search'] . '%';
         }
         if (!empty($f['date_from'])) {
             $clauses[] = "i.created_at >= :df";

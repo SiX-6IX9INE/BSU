@@ -844,6 +844,29 @@ h4 {
   cursor: text;
 }
 
+.filter-search-wrap {
+  flex: 1;
+  min-width: 180px;
+}
+
+.filter-search-wrap input {
+  width: 100%;
+  padding: .42rem .85rem;
+  font-size: .85rem;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  transition: border-color var(--t), box-shadow var(--t);
+}
+
+.filter-search-wrap input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-alpha);
+}
+
 /*  Issue grid  */
 .issue-grid {
   display: grid;

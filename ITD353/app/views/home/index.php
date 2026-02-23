@@ -32,6 +32,14 @@
 
     <!-- Status, Urgency, Sort -->
     <div class="filter-row">
+      <!-- Search -->
+      <div class="filter-search-wrap">
+        <input type="text" name="q"
+               value="<?= e($filters['search']) ?>"
+               placeholder="🔍 ค้นหาชื่อหัวข้อ / ticket..."
+               aria-label="ค้นหาปัญหา">
+      </div>
+
       <select name="status" onchange="this.form.submit()" aria-label="กรองตามสถานะ">
         <option value="">สถานะทั้งหมด</option>
         <?php foreach (['new'=>'ใหม่','reviewing'=>'กำลังตรวจสอบ','in_progress'=>'กำลังดำเนินการ','resolved'=>'แก้ไขแล้ว','rejected'=>'ปฏิเสธ'] as $val => $lbl): ?>
@@ -56,8 +64,7 @@
       <a href="<?= url() ?>" class="btn btn-outline btn-sm">✕ ล้างตัวกรอง</a>
       <?php endif; ?>
     </div>
-    <!-- Hidden inputs to preserve other filters -->
-    <input type="hidden" name="q"    value="<?= e($filters['search']) ?>">
+    <!-- Hidden input to preserve cat filter -->
     <input type="hidden" name="cat"  value="<?= e($filters['category_id']) ?>">
   </form>
 </section>

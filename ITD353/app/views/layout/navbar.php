@@ -7,6 +7,7 @@
     </a>
 
     <!-- Search (desktop) -->
+    <?php if (empty($hideNavSearch)): ?>
     <form class="nav-search" action="<?= url() ?>" method="GET" role="search">
       <label for="nav-search-input" class="sr-only">ค้นหาปัญหา</label>
       <input id="nav-search-input" type="search" name="q"
@@ -15,6 +16,7 @@
              autocomplete="off">
       <button type="submit" aria-label="ค้นหา">🔍</button>
     </form>
+    <?php endif; ?>
 
     <!-- Right controls -->
     <div class="nav-actions">
