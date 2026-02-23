@@ -77,38 +77,36 @@
     <?php foreach ($issues as $issue): ?>
     <article class="issue-card card <?= urgencyClass($issue['urgency']) ?>-border"
              data-issue-id="<?= $issue['id'] ?>">
-      <!-- Pinned indicator -->
-      <?php if ($issue['is_pinned']): ?>
-      <div class="pin-badge" title="ปักหมุดโดย Admin">📌</div>
-      <?php endif; ?>
+      <div class="issue-card-accent"></div>
 
-      <div class="card-header">
-        <span class="cat-badge" style="background:<?= e($issue['category_color']) ?>20;color:<?= e($issue['category_color']) ?>;border-color:<?= e($issue['category_color']) ?>">
-          <?= e($issue['category_icon']) ?> <?= e($issue['category_name']) ?>
-        </span>
-        <span class="status-pill <?= statusClass($issue['status']) ?>">
-          <?= statusLabel($issue['status']) ?>
-        </span>
-      </div>
+      <div class="issue-card-body">
+        <div class="card-header">
+          <?php if ($issue['is_pinned']): ?>
+          <span class="pin-badge" title="ปักหมุดโดย Admin">📌 ปักหมุด</span>
+          <?php endif; ?>
+          <span class="cat-badge" style="background:<?= e($issue['category_color']) ?>20;color:<?= e($issue['category_color']) ?>;border-color:<?= e($issue['category_color']) ?>40">
+            <?= e($issue['category_icon']) ?> <?= e($issue['category_name']) ?>
+          </span>
+          <span class="status-pill <?= statusClass($issue['status']) ?>">
+            <?= statusLabel($issue['status']) ?>
+          </span>
+        </div>
 
-      <h2 class="card-title">
-        <a href="<?= url('issue/' . $issue['id']) ?>"><?= e($issue['title']) ?></a>
-      </h2>
+        <h2 class="card-title">
+          <a href="<?= url('issue/' . $issue['id']) ?>"><?= e($issue['title']) ?></a>
+        </h2>
 
-      <p class="card-excerpt"><?= e(mb_substr($issue['description'], 0, 100)) ?>...</p>
+        <p class="card-excerpt"><?= e(mb_substr($issue['description'], 0, 110)) ?>...</p>
 
-      <div class="card-meta">
-        <span class="urgency-tag <?= urgencyClass($issue['urgency']) ?>">
-          <?= urgencyLabel($issue['urgency']) ?>
-        </span>
-        <span class="meta-sep">·</span>
-        <span class="vote-count" title="ยืนยันว่าพบปัญหา">
-          👍 <?= e($issue['vote_count']) ?>
-        </span>
-        <span class="meta-sep">·</span>
-        <span class="time-ago" title="<?= e($issue['created_at']) ?>">
-          <?= timeAgo($issue['created_at']) ?>
-        </span>
+        <div class="card-meta">
+          <span class="urgency-tag <?= urgencyClass($issue['urgency']) ?>">
+            <?= urgencyLabel($issue['urgency']) ?>
+          </span>
+          <span class="meta-sep">·</span>
+          <span class="vote-count" title="ยืนยันว่าพบปัญหา">👍 <?= e($issue['vote_count']) ?></span>
+          <span class="meta-sep">·</span>
+          <span class="time-ago" title="<?= e($issue['created_at']) ?>"><?= timeAgo($issue['created_at']) ?></span>
+        </div>
       </div>
 
       <div class="card-footer">
