@@ -16,19 +16,10 @@
     localStorage.setItem(THEME_KEY, theme);
   }
 
-  // Initialise from storage (or system pref)
+  // Initialise from storage (default: light)
   (function initTheme() {
     const stored = localStorage.getItem(THEME_KEY);
-    if (stored) {
-      applyTheme(stored);
-    } else if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      applyTheme("dark");
-    } else {
-      applyTheme("light");
-    }
+    applyTheme(stored || "light");
   })();
 
   document.addEventListener("DOMContentLoaded", function () {
