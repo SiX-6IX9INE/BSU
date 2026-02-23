@@ -120,9 +120,9 @@ LoadModule rewrite_module modules/mod_rewrite.so
 
 ## Login ทดสอบ
 
-| Role  | Email                 | Password   |
-| ----- | --------------------- | ---------- |
-| Admin | admin@community.local | Admin@1234 |
+| Role  | Email | Password |
+| ----- | ----- | -------- |
+| Admin | test  | 123      |
 
 สมัครสมาชิก user ทั่วไปได้จากหน้า `/register`
 
