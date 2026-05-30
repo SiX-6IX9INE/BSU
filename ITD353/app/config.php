@@ -12,11 +12,6 @@ define('APP_NAME', 'Community Issue Reporter');
 define('APP_VERSION', '1.0.0');
 
 // -------------------------------------------------------
-// Base URL  – ปรับตามที่ deploy จริง
-// -------------------------------------------------------
-define('BASE_URL', 'http://localhost/bsu/ITD353');
-
-// -------------------------------------------------------
 // Load .env file (ROOT_PATH is not defined yet, use dirname)
 // -------------------------------------------------------
 (function () {
@@ -39,6 +34,11 @@ define('BASE_URL', 'http://localhost/bsu/ITD353');
         }
     }
 })();
+
+// -------------------------------------------------------
+// Base URL  – ปรับตามที่ deploy จริง
+// -------------------------------------------------------
+define('BASE_URL', $_ENV['ENV_BASE_URL'] ?? 'http://localhost/bsu/ITD353');
 
 // -------------------------------------------------------
 // Database  (values from .env, fallback to defaults)
