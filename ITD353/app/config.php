@@ -35,10 +35,25 @@ define('APP_VERSION', '1.0.0');
     }
 })();
 
-// -------------------------------------------------------
-// Base URL  – ปรับตามที่ deploy จริง
-// -------------------------------------------------------
-define('BASE_URL', $_ENV['ENV_BASE_URL'] ?? 'http://localhost/BSU/ITD353');
+define('BASE_URL', (function (): string {
+    $configured = $_ENV['ENV_BASE_URL'] ?? 'http://localhost/BSU/ITD353';
+
+    // path ส่วนย่อยของแอป เช่น /BSU/ITD353
+    $basePath = rtrim(parse_url($configured, PHP_URL_PATH) ?? '', '/');
+
+    if (empty($_SERVER['HTTP_HOST'])) {
+        return rtrim($configured, '/');
+    }
+
+    $https = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off')
+        || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https')
+        || (($_SERVER['SERVER_PORT'] ?? '') == 443);
+
+    $scheme = $https ? 'https' : 'http';
+    $host   = $_SERVER['HTTP_HOST'];
+
+    return $scheme . '://' . $host . $basePath;
+})());
 
 // -------------------------------------------------------
 // Database  (values from .env, fallback to defaults)
@@ -109,11 +124,17 @@ function db(): PDO
 // Start session (once)
 // -------------------------------------------------------
 if (session_status() === PHP_SESSION_NONE) {
+    // แยก session ของแอปนี้ออกจากแอปอื่นใน /BSU (เช่น LicenseStore)
+    // ที่ใช้ $_SESSION['user'] คนละชนิดกัน — กัน session ชนกันจน error
+    $appPath = trim(parse_url(BASE_URL, PHP_URL_PATH) ?? '', '/');
+    $cookiePath = $appPath === '' ? '/' : '/' . $appPath . '/';
+
+    session_name('ITD353SESS');
     ini_set('session.cookie_httponly', '1');
     ini_set('session.use_strict_mode', '1');
     session_set_cookie_params([
         'lifetime' => SESSION_LIFETIME,
-        'path'     => '/',
+        'path'     => $cookiePath,
         'secure'   => false,  // set true on HTTPS
         'httponly' => true,
         'samesite' => 'Lax',

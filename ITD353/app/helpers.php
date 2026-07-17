@@ -17,17 +17,19 @@ function e(mixed $value): string
 // -------------------------------------------------------
 function auth(): ?array
 {
-    return $_SESSION['user'] ?? null;
+    $u = $_SESSION['user'] ?? null;
+    return is_array($u) ? $u : null;
 }
 
 function isLoggedIn(): bool
 {
-    return isset($_SESSION['user']);
+    return is_array($_SESSION['user'] ?? null);
 }
 
 function isAdmin(): bool
 {
-    return isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin';
+    $u = $_SESSION['user'] ?? null;
+    return is_array($u) && ($u['role'] ?? null) === 'admin';
 }
 
 function loginUser(array $user): void
