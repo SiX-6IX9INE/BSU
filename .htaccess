@@ -1,0 +1,6 @@
+Options -Indexes
+DirectoryIndex index.php index.html
+
+# Block access to the git pointer / dotfiles
+RewriteEngine On
+RewriteRule ^(\.git|\.env)($|/) - [F,L]
