@@ -1,0 +1,28 @@
+Options -Indexes
+AddDefaultCharset utf-8
+php_value display_errors 1
+# Rewrite --------------------------------------------------->
+
+RewriteEngine ON
+RewriteBase /BSU/LicenseStore/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#Home ----------------------------------------------------->
+
+RewriteRule ^Home?$ index.php [QSA,L]
+RewriteRule ^Products?$ pages/products.php [QSA,L]
+RewriteRule ^About-Us?$ pages/about-us.php [QSA,L]
+RewriteRule ^Blog?$ pages/blog.php [QSA,L]
+RewriteRule ^Testimonials?$ pages/testimonials.php [QSA,L]
+RewriteRule ^Terms?$ pages/terms.php [QSA,L]
+RewriteRule ^Contact?$ pages/contact.php [QSA,L]
+RewriteRule ^Login?$ pages/login.php [QSA,L]
+RewriteRule ^Dashboard?$ functions/dashboard.php [QSA,L]
+RewriteRule ^Product-Details/([a-zA-Z0-9\-]+)$ pages/product-details.php?name=$1 [QSA,L]
+RewriteRule ^Checkout/([a-zA-Z0-9\-]+)$ pages/checkout.php?name=$1 [QSA,L]
+
+
+# Error Document ------------------------------------------>
+ErrorDocument 404 /BSU/LicenseStore/index.php
