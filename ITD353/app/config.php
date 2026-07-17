@@ -38,7 +38,7 @@ define('APP_VERSION', '1.0.0');
 // -------------------------------------------------------
 // Base URL  – ปรับตามที่ deploy จริง
 // -------------------------------------------------------
-define('BASE_URL', $_ENV['ENV_BASE_URL'] ?? 'http://localhost/bsu/ITD353');
+define('BASE_URL', $_ENV['ENV_BASE_URL'] ?? 'http://localhost/BSU/ITD353');
 
 // -------------------------------------------------------
 // Database  (values from .env, fallback to defaults)

@@ -13,7 +13,7 @@ RewriteRule ^(\.env|composer\.json|composer\.lock|\.git)($|/) - [F,L]
 # ---------------------------------------------------------------------------
 
 # Skip if the request already targets the public/ sub-directory internally
-RewriteCond %{REQUEST_URI} ^/bsu/ITD353/public/ [NC]
+RewriteCond %{REQUEST_URI} ^/BSU/ITD353/public/ [NC]
 RewriteRule ^ - [L]
 
 # Forward to public/, preserving path and query string
