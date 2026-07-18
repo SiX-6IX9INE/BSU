@@ -1,6 +1,14 @@
 <?php
 include("../config.php");
 $page = "products";
+
+$conn = connDB();
+$perPage    = 6;
+$totalRows  = (int) (mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) FROM products"))[0] ?? 0);
+$totalPages = max(1, (int) ceil($totalRows / $perPage));
+$current    = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+$current    = max(1, min($current, $totalPages));
+$offset     = ($current - 1) * $perPage;
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +65,11 @@ $page = "products";
       </div>
     </div>
 
-    <div class="products">
+    <div class="products product-list">
       <div class="container">
         <div class="row">
 
-        <?php $query = mysqli_query(connDB(), "SELECT * FROM products ORDER BY product_id DESC");
+        <?php $query = mysqli_query($conn, "SELECT * FROM products ORDER BY product_id DESC LIMIT $offset, $perPage");
           while ($row = mysqli_fetch_array($query)) {
             $slug = generateSlug($row['name']);?>
             <div class="col-md-4">
@@ -147,15 +155,21 @@ $page = "products";
             </div>
           </div> -->
 
+          <?php if ($totalPages > 1): ?>
           <div class="col-md-12">
             <ul class="pages">
-              <li><a href="#">1</a></li>
-              <li class="active"><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+              <li class="<?= $current <= 1 ? 'disabled' : '' ?>">
+                <a href="<?= $current <= 1 ? '#' : '?page=' . ($current - 1) ?>" aria-label="ก่อนหน้า"><i class="fa fa-angle-double-left"></i></a>
+              </li>
+              <?php for ($p = 1; $p <= $totalPages; $p++): ?>
+                <li class="<?= $p === $current ? 'active' : '' ?>"><a href="?page=<?= $p ?>"><?= $p ?></a></li>
+              <?php endfor; ?>
+              <li class="<?= $current >= $totalPages ? 'disabled' : '' ?>">
+                <a href="<?= $current >= $totalPages ? '#' : '?page=' . ($current + 1) ?>" aria-label="ถัดไป"><i class="fa fa-angle-double-right"></i></a>
+              </li>
             </ul>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>

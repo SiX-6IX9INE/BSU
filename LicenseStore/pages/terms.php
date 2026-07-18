@@ -47,48 +47,34 @@ $page = "terms";
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>Lorem ipsum dolor sit</h4>
-              <h2>Terms</h2>
+              <h4>ข้อกำหนดการใช้บริการ</h4>
+              <h2 class="th">ข้อกำหนดและเงื่อนไข</h2>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="team-members">
+
+    <div class="terms-page">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <h2>Lorem ipsum dolor sit amet.</h2>
+        <?php
+          $terms = [
+            ['การสั่งซื้อและการชำระเงิน', 'ลูกค้าสามารถสั่งซื้อสินค้าผ่านหน้าเว็บไซต์ได้ตลอด 24 ชั่วโมง โดยต้องเข้าสู่ระบบก่อนทำการสั่งซื้อ ราคาสินค้าทั้งหมดเป็นสกุลเงินบาท (฿) และถือเป็นราคาสุทธิ เมื่อชำระเงินสำเร็จ ระบบจะจัดส่งคีย์ผลิตภัณฑ์ให้โดยอัตโนมัติ'],
+            ['สินค้าลิขสิทธิ์แท้', 'สินค้าทุกชิ้นที่จำหน่ายเป็นลิขสิทธิ์แท้ 100% สามารถเปิดใช้งาน (Activate) ได้อย่างถูกต้องตามกฎหมาย ทางร้านไม่จำหน่ายสินค้าละเมิดลิขสิทธิ์หรือคีย์ที่ผิดกฎหมายทุกกรณี'],
+            ['การจัดส่งคีย์ผลิตภัณฑ์', 'คีย์ผลิตภัณฑ์จะถูกจัดส่งผ่านระบบทันทีหลังการชำระเงินได้รับการยืนยัน กรุณาตรวจสอบข้อมูลในบัญชีของท่าน หากไม่ได้รับคีย์ภายใน 24 ชั่วโมง สามารถติดต่อทีมงานได้ตลอดเวลา'],
+            ['นโยบายการคืนเงิน', 'เนื่องจากเป็นสินค้าดิจิทัล ทางร้านขอสงวนสิทธิ์ในการคืนเงินหลังจากที่คีย์ถูกเปิดใช้งานแล้ว ยกเว้นกรณีคีย์ไม่สามารถใช้งานได้ ซึ่งทางร้านจะเปลี่ยนคีย์ใหม่หรือคืนเงินให้เต็มจำนวน'],
+            ['ความรับผิดชอบและการรับประกัน', 'ทางร้านรับประกันการใช้งานของคีย์ผลิตภัณฑ์ หากพบปัญหาการเปิดใช้งานที่เกิดจากตัวคีย์ ทีมงานยินดีดูแลและแก้ไขให้จนกว่าจะใช้งานได้ตามปกติ'],
+            ['ความเป็นส่วนตัวของข้อมูล', 'ข้อมูลส่วนบุคคลของลูกค้าจะถูกเก็บรักษาเป็นความลับ และใช้เพื่อการให้บริการเท่านั้น เราจะไม่เปิดเผยข้อมูลของท่านให้แก่บุคคลที่สามโดยไม่ได้รับความยินยอม'],
+          ];
+        ?>
+        <div class="terms-card">
+          <?php foreach ($terms as $i => $t): ?>
+            <div class="terms-block">
+              <h3><span class="tnum"><?= $i + 1 ?></span> <?= htmlspecialchars($t[0]) ?></h3>
+              <p><?= htmlspecialchars($t[1]) ?></p>
             </div>
-
-            <h5>Lorem ipsum dolor sit amet.</h5>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis.</p>
-
-            <br>
-            <br>
-
-            <h5>Lorem ipsum dolor sit amet.</h5>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quae eveniet tempora reprehenderit quo, necessitatibus vel sit laboriosam, sunt obcaecati quisquam explicabo voluptatibus earum facilis quidem fuga maiores. Quasi, obcaecati? <br><br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, est officiis. Ipsam quas consequuntur adipisci quis, fuga pariatur eius eveniet qui similique nulla inventore accusantium, suscipit asperiores quibusdam culpa iure!</p>
-            
-            <br>
-            <br>
-
-            <h5>Lorem ipsum dolor sit amet.</h5>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis.</p>
-        
-            <br>
-            <br>
-
-            <h5>Lorem ipsum dolor sit amet.</h5>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quae eveniet tempora reprehenderit quo, necessitatibus vel sit laboriosam, sunt obcaecati quisquam explicabo voluptatibus earum facilis quidem fuga maiores. Quasi, obcaecati? <br><br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, est officiis. Ipsam quas consequuntur adipisci quis, fuga pariatur eius eveniet qui similique nulla inventore accusantium, suscipit asperiores quibusdam culpa iure!</p>
-
-          </div>
+          <?php endforeach; ?>
+          <p class="terms-note"><i class="fa fa-info-circle"></i> การสั่งซื้อและใช้บริการถือว่าท่านยอมรับข้อกำหนดและเงื่อนไขข้างต้นทั้งหมด ทางร้านขอสงวนสิทธิ์ในการเปลี่ยนแปลงเงื่อนไขโดยไม่ต้องแจ้งให้ทราบล่วงหน้า</p>
         </div>
       </div>
     </div>

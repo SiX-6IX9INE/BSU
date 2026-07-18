@@ -56,115 +56,75 @@ $page = "blog";
       </div>
     </div>
 
-    <div class="products">
+    <?php
+      $posts = [
+        ['img' => 'blog-1-370x270.jpg', 'title' => 'อัปเดต Windows 11 มีอะไรใหม่ที่ควรรู้'],
+        ['img' => 'blog-2-370x270.jpg', 'title' => 'วิธีเลือกซื้อ License แท้ให้คุ้มค่าที่สุด'],
+        ['img' => 'blog-3-370x270.jpg', 'title' => 'ตั้งค่าความปลอดภัยเบื้องต้นหลังติดตั้งวินโดวส์'],
+        ['img' => 'blog-4-370x270.jpg', 'title' => 'เปรียบเทียบ Windows 11 Home กับ Pro'],
+        ['img' => 'blog-5-370x270.jpg', 'title' => 'รวมทริคใช้งาน Windows ให้ลื่นขึ้น'],
+        ['img' => 'blog-6-370x270.jpg', 'title' => 'License หมดอายุทำอย่างไร แนวทางต่ออายุ'],
+      ];
+      $recent = [
+        'อัปเดต Windows 11 มีอะไรใหม่ที่ควรรู้',
+        'วิธีเลือกซื้อ License แท้ให้คุ้มค่าที่สุด',
+        'License หมดอายุทำอย่างไร แนวทางต่ออายุ',
+      ];
+      $tags = ['Windows', 'Office', 'License', 'Tips', 'Security'];
+    ?>
+    <div class="products blog-page">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
             <div class="row">
+              <?php foreach ($posts as $post): ?>
               <div class="col-md-6">
-                <div class="service-item">
-                  <a href="blog-details.html" class="services-item-image"><img src="assets/images/blog-1-370x270.jpg" class="img-fluid" alt=""></a>
-
+                <article class="service-item blog-card">
+                  <a href="<?= BASE ?>Blog" class="services-item-image">
+                    <img src="<?= BASE ?>assets/images/<?= $post['img'] ?>" class="img-fluid" alt="<?= htmlspecialchars($post['title']) ?>">
+                  </a>
                   <div class="down-content">
-                    <h4><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
-
-                    <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+                    <h4><a href="<?= BASE ?>Blog"><?= htmlspecialchars($post['title']) ?></a></h4>
+                    <ul class="blog-meta">
+                      <li><i class="fa fa-user"></i> John Doe</li>
+                      <li><i class="fa fa-calendar"></i> 12/06/2025</li>
+                      <li><i class="fa fa-eye"></i> 114</li>
+                    </ul>
                   </div>
-                </div>
+                </article>
               </div>
-              <div class="col-md-6">
-                <div class="service-item">
-                  <a href="blog-details.html" class="services-item-image"><img src="assets/images/blog-2-370x270.jpg" class="img-fluid" alt=""></a>
-
-                  <div class="down-content">
-                    <h4><a href="blog-details.html">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h4>
-
-                    <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="service-item">
-                  <a href="blog-details.html" class="services-item-image"><img src="assets/images/blog-3-370x270.jpg" class="img-fluid" alt=""></a>
-
-                  <div class="down-content">
-                    <h4><a href="blog-details.html">Aperiam modi voluptatum fuga officiis cumque</a></h4>
-
-                    <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="service-item">
-                  <a href="blog-details.html" class="services-item-image"><img src="assets/images/blog-4-370x270.jpg" class="img-fluid" alt=""></a>
-
-                  <div class="down-content">
-                    <h4><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
-
-                    <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="service-item">
-                  <a href="blog-details.html" class="services-item-image"><img src="assets/images/blog-5-370x270.jpg" class="img-fluid" alt=""></a>
-
-                  <div class="down-content">
-                    <h4><a href="blog-details.html">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h4>
-
-                    <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="service-item">
-                  <a href="blog-details.html" class="services-item-image"><img src="assets/images/blog-6-370x270.jpg" class="img-fluid" alt=""></a>
-
-                  <div class="down-content">
-                    <h4><a href="blog-details.html">Aperiam modi voluptatum fuga officiis cumque</a></h4>
-
-                    <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12">
-                <ul class="pages">
-                  <li><a href="#">1</a></li>
-                  <li class="active"><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                </ul>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
 
           <div class="col-md-4">
-            <div class="contact-form">
-              <div class="form-group">
-                <h5>Blog Search</h5>
+            <aside class="blog-sidebar">
+              <div class="widget">
+                <h5 class="widget-title">ค้นหาบทความ</h5>
+                <form class="search-box" action="<?= BASE ?>Blog" method="get">
+                  <input type="text" name="q" class="form-control" placeholder="พิมพ์คำค้นหา...">
+                  <button class="filled-button" type="submit" aria-label="ค้นหา"><i class="fa fa-search"></i></button>
+                </form>
               </div>
 
-              <div class="row">
-                <div class="col-8">
-                  <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                </div>
-
-                <div class="col-4">
-                  <button class="filled-button" type="button">Go</button>
-                </div>
+              <div class="widget">
+                <h5 class="widget-title">บทความล่าสุด</h5>
+                <ul class="recent-list">
+                  <?php foreach ($recent as $r): ?>
+                    <li><a href="<?= BASE ?>Blog"><i class="fa fa-angle-right"></i> <?= htmlspecialchars($r) ?></a></li>
+                  <?php endforeach; ?>
+                </ul>
               </div>
-            </div>
 
-            <div class="form-group">
-              <h5>Lorem ipsum dolor sit amet</h5>
-            </div>
-
-            <p><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></p>
-            <p><a href="blog-details.html">Et animi voluptatem, assumenda enim, consectetur quaerat!</a></p>
-            <p><a href="blog-details.html">Ducimus magni eveniet sit doloremque molestiae alias mollitia vitae.</a></p>
+              <div class="widget">
+                <h5 class="widget-title">หมวดหมู่</h5>
+                <ul class="tag-list">
+                  <?php foreach ($tags as $t): ?>
+                    <li><a href="<?= BASE ?>Blog"><?= htmlspecialchars($t) ?></a></li>
+                  <?php endforeach; ?>
+                </ul>
+              </div>
+            </aside>
           </div>
         </div>
       </div>

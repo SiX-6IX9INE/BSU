@@ -197,77 +197,77 @@ handleRegister($conn, $registerError, $successMsg);
     <div class="form-side">
       <div class="form-inner active" id="login-form">
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <h3 class="mb-0">Sign In</h3>
+          <h3 class="mb-0">เข้าสู่ระบบ</h3>
           <div class="social-media d-flex">
             <a href="#" class="social-icon"><span class="fa fa-facebook"></span></a>
-            <a href="#" class="social-icon"><span class="fa fa-twitter"></span></a>
+            <a href="#" class="social-icon"><span class="fa fa-youtube"></span></a>
           </div>
         </div>
 
         <form method="POST">
           <div class="form-group mb-3">
-            <label>Username</label>
+            <label>ชื่อผู้ใช้</label>
             <input type="text" class="form-control" name="username" required>
           </div>
           <div class="form-group mb-3">
-            <label>Password</label>
+            <label>รหัสผ่าน</label>
             <input type="password" class="form-control" name="password" required>
           </div>
           <div class="form-group">
-            <button type="submit" name="login" class="form-control btn btn-primary">Sign In</button>
+            <button type="submit" name="login" class="form-control btn btn-primary">เข้าสู่ระบบ</button>
           </div>
           <div class="form-group d-flex justify-content-between align-items-center mt-2">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="remember" id="remember" />
-              <label class="form-check-label" for="remember">Remember me</label>
+              <label class="form-check-label" for="remember">จดจำฉันไว้</label>
             </div>
-            <a href="#" id="forgot-password" class="text-decoration-none">Forgot password?</a>
+            <a href="#" id="forgot-password" class="text-decoration-none">ลืมรหัสผ่าน?</a>
           </div>
         </form>
       </div>
 
       <div class="form-inner inactive" id="signup-form">
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <h3 class="mb-0">Sign Up</h3>
+          <h3 class="mb-0">สมัครสมาชิก</h3>
           <div class="social-media d-flex">
             <a href="#" class="social-icon"><span class="fa fa-facebook"></span></a>
-            <a href="#" class="social-icon"><span class="fa fa-twitter"></span></a>
+            <a href="#" class="social-icon"><span class="fa fa-youtube"></span></a>
           </div>
         </div>
 
-        
+
 
         <form method="POST">
           <div class="form-group mb-3">
-            <label>Username</label>
+            <label>ชื่อผู้ใช้</label>
             <input type="text" class="form-control" name="username" required>
           </div>
           <div class="form-group mb-3">
-            <label>Email</label>
+            <label>อีเมล</label>
             <input type="email" class="form-control" name="email" required>
           </div>
           <div class="form-group mb-3">
-            <label>Phone</label>
+            <label>เบอร์โทรศัพท์</label>
             <input type="text" class="form-control" name="phone" required>
           </div>
           <div class="form-group mb-3">
-            <label>Password</label>
+            <label>รหัสผ่าน</label>
             <input type="password" class="form-control" name="password" required>
           </div>
           <div class="form-group">
-            <button type="submit" name="register" class="form-control btn btn-primary">Sign Up</button>
+            <button type="submit" name="register" class="form-control btn btn-primary">สมัครสมาชิก</button>
           </div>
           <div class="form-group text-center mt-3">
-            <a href="#" id="back-to-login">Already have an account?</a>
+            <a href="#" id="back-to-login">มีบัญชีอยู่แล้ว?</a>
           </div>
         </form>
       </div>
     </div>
 
     <div class="text-side">
-      <h2 id="toggle-title">Welcome to Sign In</h2>
-      <p class="text-white" id="toggle-text">Don't have an account?</p>
-      <a href="#" class="btn btn-white btn-outline-white" id="toggle-form-btn">Sign Up</a>
+      <h2 id="toggle-title">ยินดีต้อนรับกลับ</h2>
+      <p class="text-white" id="toggle-text">ยังไม่มีบัญชีใช่ไหม?</p>
+      <a href="#" class="btn btn-white btn-outline-white" id="toggle-form-btn">สมัครสมาชิก</a>
     </div>
 
   </div>
@@ -299,13 +299,13 @@ handleRegister($conn, $registerError, $successMsg);
     signupForm.classList.toggle('active');
     signupForm.classList.toggle('inactive');
 
-    toggleBtn.textContent = isLogin ? 'Sign Up' : 'Sign In';
+    toggleBtn.textContent = isLogin ? 'สมัครสมาชิก' : 'เข้าสู่ระบบ';
     toggleText.textContent = isLogin
-      ? "Don't have an account?"
-      : "Already have an account?";
+      ? "ยังไม่มีบัญชีใช่ไหม?"
+      : "มีบัญชีอยู่แล้ว?";
     toggleTitle.textContent = isLogin
-      ? "Welcome to Sign In"
-      : "Welcome to Sign Up";
+      ? "ยินดีต้อนรับกลับ"
+      : "สร้างบัญชีใหม่";
   });
 
   document.getElementById("back-to-login").addEventListener("click", function (e) {
@@ -316,9 +316,9 @@ handleRegister($conn, $registerError, $successMsg);
     signupForm.classList.add("inactive");
 
     isLogin = true;
-    toggleBtn.textContent = 'Sign Up';
-    toggleText.textContent = "Don't have an account?";
-    toggleTitle.textContent = "Welcome to Sign In";
+    toggleBtn.textContent = 'สมัครสมาชิก';
+    toggleText.textContent = "ยังไม่มีบัญชีใช่ไหม?";
+    toggleTitle.textContent = "ยินดีต้อนรับกลับ";
   });
 
   <?php if (!empty($loginError)): ?>

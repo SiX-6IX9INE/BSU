@@ -47,89 +47,51 @@ $page = "testimonials";
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>Dolore doloribus sint</h4>
-              <h2>Testimonials</h2>
+              <h4>รีวิวจากลูกค้า</h4>
+              <h2 class="th">เสียงจากลูกค้า</h2>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="services section-background">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="service-item">
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-              <div class="down-content">
-                <h4>John Doe</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-item">
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-              <div class="down-content">
-                <h4>Jane Smith</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-item">
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-              <div class="down-content">
-                <h4>Antony Davis</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-4">
-            <div class="service-item">
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-              <div class="down-content">
-                <h4>John Doe</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-              </div>
-            </div>
+    <?php
+        $reviews = [
+          ['name' => 'ธนวัฒน์ ศรีสมบัติ',  'role' => 'พนักงานออฟฟิศ', 'stars' => 5, 'text' => 'สั่ง Windows 11 ได้คีย์ทันทีเลยครับ ใช้งานได้จริง ราคาถูกกว่าที่อื่นเยอะมาก ประทับใจสุด ๆ'],
+          ['name' => 'ปาริชาติ ใจดี',      'role' => 'ฟรีแลนซ์',      'stars' => 5, 'text' => 'ซื้อ Office มาใช้ทำงาน ของแท้ 100% แอดมินตอบเร็ว ให้คำแนะนำดีมากค่ะ'],
+          ['name' => 'อนุชา วงศ์เจริญ',    'role' => 'เจ้าของร้าน',    'stars' => 4, 'text' => 'บริการดี ส่งของไว มีปัญหาทักไปแก้ให้ทันที คุ้มค่ากับราคาครับ'],
+          ['name' => 'ศิริพร แก้วมณี',      'role' => 'นักศึกษา',       'stars' => 5, 'text' => 'ราคานักศึกษาจับต้องได้ ลงโปรแกรมง่าย มีคู่มือให้ ขอบคุณมากค่ะ'],
+          ['name' => 'กิตติพงษ์ รักษาดี',  'role' => 'โปรแกรมเมอร์',   'stars' => 5, 'text' => 'ซื้อหลายครั้งแล้ว ไว้ใจได้ทุกครั้ง คีย์ใช้งานได้ตลอด ไม่มีปัญหาเลย'],
+          ['name' => 'มนัสนันท์ พูลสุข',   'role' => 'ลูกค้าประจำ',    'stars' => 5, 'text' => 'ประทับใจการดูแลหลังการขายมาก ตอบแชทตลอด แนะนำร้านนี้เลยครับ'],
+        ];
+      ?>
+      <div class="services section-background testi-page">
+        <div class="container">
+          <div class="section-heading heading-center">
+            <h2>ลูกค้าพูดถึงเราอย่างไร</h2>
           </div>
-          <div class="col-md-4">
-            <div class="service-item">
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-              <div class="down-content">
-                <h4>Jane Smith</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-item">
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-              <div class="down-content">
-                <h4>Antony Davis</h4>
-                <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+          <div class="row">
+            <?php foreach ($reviews as $r): ?>
+            <div class="col-md-4 col-sm-6">
+              <div class="review-card">
+                <span class="quote-mark"><i class="fa fa-quote-left"></i></span>
+                <div class="stars">
+                  <?php for ($s = 0; $s < 5; $s++) echo '<i class="fa fa-star' . ($s < $r['stars'] ? '' : '-o') . '"></i>'; ?>
+                </div>
+                <p class="review-text"><?= htmlspecialchars($r['text']) ?></p>
+                <div class="review-person">
+                  <span class="avatar"><i class="fa fa-user"></i></span>
+                  <div class="rp-meta">
+                    <h5><?= htmlspecialchars($r['name']) ?></h5>
+                    <span class="role"><?= htmlspecialchars($r['role']) ?></span>
+                  </div>
+                </div>
               </div>
             </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
-    </div>
     
     <?php include("../components/footer.php"); ?>
 
